@@ -1,11 +1,14 @@
 # `server`
 
-> TODO: description
+GraphQL API for Singularity talk.
+
+## Getting Started
+
+```
+npm install
+npm run start
+```
 
 ## Usage
 
-```
-const server = require('server');
-
-// TODO: DEMONSTRATE API
-```
+Open `http://localhost:5000` and expore GraphQL API.

@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   development: {
     client: "sqlite3",
     connection: {
@@ -8,8 +8,7 @@ export default {
       extension: "ts"
     },
     seeds: {
-      extension: "ts",
-      directory: "./seeds/dev"
+      extension: "ts"
     }
   }
 };

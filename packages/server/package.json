@@ -3,8 +3,7 @@
   "name": "server",
   "version": "0.0.0",
   "scripts": {
-    "start": "ts-node-dev lib",
-    "migrate": "knex migrate:up && knex seed:run"
+    "start": "knex migrate:up && knex seed:run && ts-node-dev lib"
   },
   "devDependencies": {
     "ts-node-dev": "^1.0.0-pre.43",

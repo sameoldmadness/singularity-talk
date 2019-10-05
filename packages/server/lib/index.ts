@@ -1,6 +1,6 @@
 import { ApolloServer, gql } from "apollo-server";
 import * as createKnex from "knex";
-import knexfile from "../knexfile";
+const knexfile = require("../knexfile");
 
 const knex = createKnex(knexfile.development);
 
