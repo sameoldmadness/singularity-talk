@@ -1,11 +1,14 @@
 # `client`
 
-> TODO: description
+Web client for Singularity talk.
+
+## Getting Started
+
+```
+npm install
+npm run start
+```
 
 ## Usage
 
-```
-const client = require('client');
-
-// TODO: DEMONSTRATE API
-```
+Open `http://localhost:1234` and expore the website.
