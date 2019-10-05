@@ -11,7 +11,12 @@ const GET_USERS = gql`
   }
 `;
 
-client.query({ query: GET_USERS }).then(res => {
+interface User {
+  id: number;
+  name: string;
+}
+
+client.query<{ users: User[] }>({ query: GET_USERS }).then(res => {
   const { users } = res.data;
   const usersHtml = `
     <h1>Users</h1>
