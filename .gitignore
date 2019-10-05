@@ -1,2 +1,4 @@
 node_modules
 *.sqlite3
+.cache
+dist

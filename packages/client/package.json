@@ -3,10 +3,12 @@
   "name": "client",
   "version": "0.0.0",
   "scripts": {
-    "start": "ts-node-dev lib/client.ts"
+    "start": "parcel lib/index.html"
   },
   "devDependencies": {
-    "ts-node-dev": "^1.0.0-pre.43",
+    "apollo-boost": "^0.4.4",
+    "graphql": "^14.5.8",
+    "parcel-bundler": "^1.12.3",
     "typescript": "^3.7.0-beta"
   }
 }
