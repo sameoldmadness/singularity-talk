@@ -1,5 +1,5 @@
 function client(a: number) {
-    console.log(a)
+  console.log(a);
 }
 
-client(1)
+client(1);

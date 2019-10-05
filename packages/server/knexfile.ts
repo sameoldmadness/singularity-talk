@@ -5,11 +5,11 @@ export default {
       filename: "./dev.sqlite3"
     },
     migrations: {
-      extension: 'ts'
+      extension: "ts"
     },
     seeds: {
-      extension: 'ts',
-        directory: './seeds/dev'
+      extension: "ts",
+      directory: "./seeds/dev"
     }
-  },
+  }
 };
