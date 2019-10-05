@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "name": "server",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "ts-node-dev lib/server.ts"
+  },
+  "devDependencies": {
+    "ts-node-dev": "^1.0.0-pre.43",
+    "typescript": "^3.7.0-beta"
+  }
+}
