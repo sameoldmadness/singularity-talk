@@ -3,10 +3,14 @@
   "name": "server",
   "version": "0.0.0",
   "scripts": {
-    "start": "ts-node-dev lib/server.ts"
+    "start": "ts-node-dev lib"
   },
   "devDependencies": {
     "ts-node-dev": "^1.0.0-pre.43",
     "typescript": "^3.7.0-beta"
+  },
+  "dependencies": {
+    "apollo-server": "^2.9.5",
+    "graphql": "^14.5.8"
   }
 }
