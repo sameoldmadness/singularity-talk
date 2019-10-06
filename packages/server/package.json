@@ -3,23 +3,22 @@
   "name": "server",
   "version": "0.0.0",
   "scripts": {
-    "start": "concurrently \"npm:setup-database\" \"npm:generate-types\" \"npm:start-server\"",
-    "start-server": "ts-node-dev lib",
-    "setup-database": "rm -f dev.sqlite3 && knex migrate:up",
-    "generate-types": "graphql-codegen --watch"
+    "start": "npm run setup-database && npm run start-server",
+    "setup-database": "docker-compose up -d && prisma deploy",
+    "start-server": "ts-node-dev lib"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^1.8.1",
     "@graphql-codegen/typescript": "^1.8.1",
     "@graphql-codegen/typescript-resolvers": "^1.8.1",
-    "concurrently": "^4.1.2",
+    "ts-node": "^8.4.1",
     "ts-node-dev": "^1.0.0-pre.43",
     "typescript": "^3.7.0-beta"
   },
   "dependencies": {
     "apollo-server": "^2.9.5",
     "graphql": "^14.5.8",
-    "knex": "^0.19.4",
-    "sqlite3": "^4.1.0"
+    "graphql-cli": "^3.0.14",
+    "prisma-binding": "^2.3.16"
   }
 }

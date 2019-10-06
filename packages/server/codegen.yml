@@ -3,7 +3,7 @@ hooks:
     - prettier --write
 generates:
   ./generated/types.ts:
-    schema: ./lib/schema.ts
+    schema: ./lib/schema.graphql
     plugins:
       - typescript
       - typescript-resolvers

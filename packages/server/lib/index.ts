@@ -1,10 +1,14 @@
+import { readFileSync } from "fs";
 import { ApolloServer } from "apollo-server";
-import { schema } from "./schema";
+import { db } from "./datasources";
 import { resolvers } from "./resolvers";
+
+const schema = readFileSync(__dirname + "/schema.graphql", "utf8");
 
 const server = new ApolloServer({
   typeDefs: schema,
-  resolvers
+  resolvers,
+  context: req => ({ ...req, db })
 });
 
 server.listen({ port: 5000 }).then(({ url }) => {

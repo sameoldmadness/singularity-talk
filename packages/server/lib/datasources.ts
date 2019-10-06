@@ -1,24 +1,9 @@
-import createKnex from "knex";
-import { User } from "../generated/types";
-import knexfile from "../knexfile";
+import { Prisma, User } from "../generated/prisma-binding";
 
-const knex = createKnex(knexfile.development);
+export const db = new Prisma({ endpoint: "http://localhost:4466" });
 
-export function getUsers(): Promise<User[]> {
-  return knex.select().from<User>("user");
-}
+export async function createUser(name: string): Promise<User> {
+  const user = await db.mutation.createUser({ data: { name } });
 
-export async function getUser(id: number): Promise<User> {
-  const users = await knex
-    .select()
-    .from<User>("user")
-    .where({ id });
-
-  return users[0];
-}
-
-export async function createUser(name: string): Promise<number> {
-  const userIds = await knex("user").insert([{ name }]);
-
-  return userIds[0];
+  return user;
 }
