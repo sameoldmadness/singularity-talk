@@ -1,14 +1,12 @@
-import { readFileSync } from "fs";
+import Photon from "@generated/photon";
 import { ApolloServer } from "apollo-server";
-import { db } from "./datasources";
-import { resolvers } from "./resolvers";
+import { schema } from "./resolvers";
 
-const schema = readFileSync(__dirname + "/schema.graphql", "utf8");
+const photon = new Photon();
 
 const server = new ApolloServer({
-  typeDefs: schema,
-  resolvers,
-  context: req => ({ ...req, db })
+  schema,
+  context: { photon }
 });
 
 server.listen({ port: 5000 }).then(({ url }) => {

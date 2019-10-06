@@ -17,6 +17,14 @@ Install Docker. ([docs](https://www.prisma.io/docs/get-started/01-setting-up-pri
 
 ```
 npm install
+npm run setup-database
+```
+
+The previous command will run in `watch` mode, which means it will wait until you terminate it.
+
+So the next command need to be run in a new terminal window.
+
+```
 npm run start
 ```
 

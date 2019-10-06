@@ -1,9 +1,7 @@
-import { Prisma, User } from "../generated/prisma-binding";
+import Photon, { User } from "@generated/photon";
 
-export const db = new Prisma({ endpoint: "http://localhost:4466" });
+const photon = new Photon();
 
 export async function createUser(name: string): Promise<User> {
-  const user = await db.mutation.createUser({ data: { name } });
-
-  return user;
+  return photon.users.create({ data: { name } });
 }
