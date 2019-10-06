@@ -1,15 +1,14 @@
-import { IResolvers } from "graphql-tools";
+import { Resolvers } from "../generated/types";
 import * as db from "./datasources";
-import { User } from "./types";
 
-export const resolvers: IResolvers = {
+export const resolvers: Resolvers = {
   Query: {
-    users(): Promise<User[]> {
+    users() {
       return db.getUsers();
     }
   },
   Mutation: {
-    async createUser(_, args: { name: string }): Promise<User> {
+    async createUser(_, args) {
       const id = await db.createUser(args.name);
 
       return db.getUser(id);

@@ -1,4 +1,4 @@
-import { User } from "./types";
+import { User } from "../generated/types";
 
 export function userTemplate(user: User) {
   return `

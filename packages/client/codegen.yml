@@ -1,0 +1,10 @@
+hooks:
+  afterAllFileWrite:
+    - prettier --write
+generates:
+  ./generated/types.ts:
+    documents: ./lib/queries.ts
+    schema: ../server/lib/schema.ts
+    plugins:
+      - typescript
+      - typescript-operations

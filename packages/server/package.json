@@ -3,9 +3,16 @@
   "name": "server",
   "version": "0.0.0",
   "scripts": {
-    "start": "rm -f dev.sqlite3 && knex migrate:up && ts-node-dev lib"
+    "start": "concurrently \"npm:setup-database\" \"npm:generate-types\" \"npm:start-server\"",
+    "start-server": "ts-node-dev lib",
+    "setup-database": "rm -f dev.sqlite3 && knex migrate:up",
+    "generate-types": "graphql-codegen --watch"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^1.8.1",
+    "@graphql-codegen/typescript": "^1.8.1",
+    "@graphql-codegen/typescript-resolvers": "^1.8.1",
+    "concurrently": "^4.1.2",
     "ts-node-dev": "^1.0.0-pre.43",
     "typescript": "^3.7.0-beta"
   },

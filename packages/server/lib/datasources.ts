@@ -1,6 +1,6 @@
 import createKnex from "knex";
+import { User } from "../generated/types";
 import knexfile from "../knexfile";
-import { User } from "./types";
 
 const knex = createKnex(knexfile.development);
 
