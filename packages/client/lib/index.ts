@@ -1,29 +1,11 @@
-import ApolloClient, { gql } from "apollo-boost";
+import { getUsers } from "./datasources";
+import { userTemplate } from "./templates";
 
-const client = new ApolloClient({ uri: "http://localhost:5000" });
+(async () => {
+  const { data } = await getUsers();
+  const usersEl = document.getElementById("user-list")!;
 
-const GET_USERS = gql`
-  query {
-    users {
-      id
-      name
-    }
+  for (const user of data.users) {
+    usersEl.insertAdjacentHTML("beforeend", userTemplate(user));
   }
-`;
-
-interface User {
-  id: number;
-  name: string;
-}
-
-client.query<{ users: User[] }>({ query: GET_USERS }).then(res => {
-  const { users } = res.data;
-  const usersHtml = `
-    <h1>Users</h1>
-    <ul>
-      ${users.map(user => `<li>${user.name}</li>`)}
-    </ul>
-  `;
-
-  document.body.insertAdjacentHTML("afterend", usersHtml);
-});
+})().catch(console.error);

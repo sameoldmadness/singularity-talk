@@ -2,27 +2,17 @@ import { IResolvers } from "graphql-tools";
 import * as db from "./datasources";
 import { User } from "./types";
 
-interface MakeFriendsArgs {
-  userId: number;
-  friendId: number;
-}
-
 export const resolvers: IResolvers = {
   Query: {
     users(): Promise<User[]> {
-      return db.getAllUsers();
+      return db.getUsers();
     }
   },
   Mutation: {
-    async makeFriends(_, args: MakeFriendsArgs): Promise<User> {
-      await db.connectUsersAsFriends(args.userId, args.friendId);
+    async createUser(_, args: { name: string }): Promise<User> {
+      const id = await db.createUser(args.name);
 
-      return db.getUser(args.userId);
-    }
-  },
-  User: {
-    friends(parent: User): Promise<User[]> {
-      return db.getUserFriends(parent.id);
+      return db.getUser(id);
     }
   }
 };

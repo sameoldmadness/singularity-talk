@@ -4,7 +4,6 @@ export const schema = gql`
   type User {
     id: Int!
     name: String!
-    friends: [User!]!
   }
 
   type Query {
@@ -12,6 +11,6 @@ export const schema = gql`
   }
 
   type Mutation {
-    makeFriends(userId: Int!, friendId: Int!): [User!]!
+    createUser(name: String!): User!
   }
 `;

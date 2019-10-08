@@ -3,7 +3,7 @@
   "name": "server",
   "version": "0.0.0",
   "scripts": {
-    "start": "knex migrate:up && knex seed:run && ts-node-dev lib"
+    "start": "rm -f dev.sqlite3 && knex migrate:up && ts-node-dev lib"
   },
   "devDependencies": {
     "ts-node-dev": "^1.0.0-pre.43",
